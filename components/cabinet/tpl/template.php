@@ -1,0 +1,4 @@
+ <? $PAGE->setPageTitle('Кабинет');?>
+ 
+ 
+ 

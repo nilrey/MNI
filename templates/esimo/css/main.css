@@ -1,0 +1,1401 @@
+/* Saved from http://www.ocean-info.ru */
+
+/* Тело страницы */
+
+BODY {
+/*background-color: #ffffff;*/
+    background-color: #145A7A; /*background-image: url( /templates/esimo/images/body_backgr_01.gif );*/
+    background-repeat: repeat-x;
+    margin: 0px 0px 0px 0px;
+}
+
+TD.body_border_01 {
+    background-image: url( /templates/esimo/images/body_border_backgr_01.gif );
+    background-repeat: repeat-y;
+}
+
+TD.body_border_02 {
+    background-image: url( /templates/esimo/images/body_border_backgr_02.gif );
+    background-repeat: repeat-y;
+}
+
+TD.body_border_03 {
+    background-image: url( /templates/esimo/images/body_border_01.gif );
+    background-repeat: no-repeat;
+}
+
+TD.body_border_04 {
+    background-image: url( /templates/esimo/images/body_border_02.gif );
+    background-repeat: no-repeat;
+}
+
+/* Календарь. */
+
+TD.calendar {
+    background-color: #F3F5F6;
+    background-image: url( /templates/esimo/images/topmenu_backgr.gif );
+    height: 17px;
+    padding: 0px 7px 0px 7px;
+}
+
+.date_01 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 9px;
+    color: #7F838F;
+}
+
+.date_02 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #2F2F2F;
+}
+
+.date_03 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 14px;
+    color: #005F91;
+}
+
+.date_04 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #9296A0;
+    margin-bottom: 2px;
+}
+
+/* Шапка */
+
+TD.head_backgr_01 {
+    background-color: #7CADCE;
+    background-image: url( /templates/esimo/images/head_backgr_01.gif );
+    background-repeat: repeat-x;
+}
+
+TD.head_new_1 {
+    background-color: #7CADCE;
+    background-image: url( /templates/esimo/images/new_2.png );
+    background-repeat: repeat-x;
+}
+
+TD.head_border_03 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/head_border_backgr_03.gif );
+    background-repeat: repeat-x;
+}
+
+/* Логин */
+
+TD.login_form {
+    background-color: #8199B1;
+    background-image: url( /templates/esimo/images/login_backgr_01.gif );
+    background-repeat: no-repeat;
+    padding: 12px 12px 17px 12px;
+}
+
+FORM.login_form {
+    margin: 0px 0px 0px 0px;
+}
+
+.form_text {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #3E6181;
+}
+
+/* Форма поиска */
+
+FORM.search_form {
+    margin: 0px 0px 0px 0px;
+}
+
+TD.search_hline {
+    padding: 7px 0px 7px 0px;
+}
+
+.search_parameter {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: #F5F5F5;
+    padding-bottom: 2px; /*vertical-align: top;	*/
+}
+
+/* Основное меню */
+
+TD.globalmenu_01 {
+    background-color: #7CADCE;
+    background-image: url( /templates/esimo/images/globalmenu_backgr_01.gif );
+    background-repeat: repeat-x;
+    padding: 0px 7px 0px 7px;
+}
+
+TD.globalmenu_02 {
+    background-color: #14508A;
+    background-image: url( /templates/esimo/images/globalmenu_backgr_02.gif );
+    background-repeat: repeat-x;
+    padding: 0px 7px 0px 7px;
+}
+
+.globalmenu_underline {
+    background-color: #14508A;
+    height: 1px;
+}
+
+TD.globalmenu_01 A {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #2E4162;
+    text-decoration: none;
+}
+
+TD.globalmenu_01 A:HOVER {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+TD.globalmenu_02 A {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+TD.globalmenu_02 A:HOVER {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.menu_01_btn_01 {
+    font-family: Arial, sans-serif;
+    font-size: 10px; /*font-variant: small-caps;*/
+    color: #2E4162;
+}
+
+A.menu_01_btn_01 {
+    color: #2E4162;
+    text-decoration: none;
+}
+
+A.menu_01_btn_01:VISITED {
+    color: #2E4162;
+}
+
+A.menu_01_btn_01:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+.menu_01_btn_02 {
+    font-family: Arial, sans-serif;
+    font-size: 10px; /*font-variant: small-caps;*/
+    color: #FFFFFF;
+}
+
+A.menu_01_btn_02 {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+A.menu_01_btn_02:VISITED {
+    color: #FFFFFF;
+}
+
+A.menu_01_btn_02:HOVER {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.menu_01_btn_03 {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #2E4162;
+}
+
+A.menu_01_btn_03 {
+    color: #2E4162;
+    text-decoration: none;
+}
+
+A.menu_01_btn_03:VISITED {
+    color: #2E4162;
+}
+
+A.menu_01_btn_03:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+TD.menu_backgr_01 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/menu_backgr_01.gif );
+    padding-top: 4px;
+}
+
+TD.menu_underline {
+    background-color: #B90000;
+    height: 1px;
+}
+
+/* Второстепенное меню */
+
+.menu_02 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #62809D;
+}
+
+A.menu_02 {
+    color: #62809D;
+    text-decoration: none;
+}
+
+A.menu_02:VISITED {
+    color: #62809D;
+}
+
+A.menu_02:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+TD.language {
+    background-color: #F3F5F6;
+    background-image: url( /templates/esimo/images/topmenu_backgr.gif );
+    height: 17px;
+    padding: 0px 4px 0px 4px;
+}
+
+IMG.language {
+    margin-right: 4px;
+}
+
+/* Подменю */
+
+TABLE.submenu_frame_01 {
+    background-color: #6694A9;
+    border: 1px solid #437B95;
+}
+
+TABLE.submenu_frame_02 {
+    background-color: #6694A9;
+    background-image: url( /templates/esimo/images/submenu_frame_backgr.gif );
+    border: 1px solid #437B95;
+}
+
+TD.submenu_frame_03 {
+    background-color: #ACCADB;
+    background-image: url( /templates/esimo/images/submenu_backgr_01.gif );
+    padding: 7px 3px 7px 3px;
+}
+
+TABLE.submenu_frame_04 {
+    background-color: #6694A9;
+    border: 1px solid #437B95;
+}
+
+TD.help_frame {
+
+    padding: 0px 7px 10px 7px;
+}
+
+.help_frame_title {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-bottom: 2px;
+    vertical-align: top;
+}
+
+.help_frame {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 3px;
+}
+
+A.help_frame_link {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+A.help_frame_link:VISITED {
+    color: #FFFFFF;
+}
+
+A.help_frame_link:HOVER {
+    color: #D7E9FB;
+    text-decoration: underline;
+}
+
+TD.submenu_frame_04 {
+    background-color: #B4CAD4;
+    background-image: url( /templates/esimo/images/submenu_backgr_02.gif );
+    padding: 7px 3px 7px 3px;
+}
+
+TD.submenu_01_minus {
+    background-color: #ACCADB;
+    background-image: url( /templates/esimo/images/submenu_ico_backgr_01.gif );
+    padding-top: 1px;
+}
+
+TD.submenu_01_corner {
+    background-color: #ACCADB;
+    background-image: url( /templates/esimo/images/submenu_ico_backgr_01.gif );
+    padding-top: 6px;
+}
+
+TD.submenu1_01_bg {
+    background-image: url( /templates/esimo/images/submenu_ico_backgr.gif );
+}
+
+TD.submenu_01_bg {
+    background-image: url( /templates/esimo/images/submenu_ico_backgr_01.gif );
+}
+
+TD.submenu_02_corner_col01 {
+    padding-top: 4px;
+}
+
+DIV.submenu_title_01 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #0A2744;
+}
+
+A.submenu_title_01 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    color: #0A2744;
+}
+
+A.submenu_title_01:VISITED {
+    color: #0A2744;
+}
+
+A.submenu_title_01:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+DIV.submenu_title_01_bold {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #0A2744;
+    font-weight: bold;
+}
+
+
+A.submenu_title_01_bold {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    color: #0A2744;
+    font-weight: bold;
+}
+
+A.submenu_title_01_bold:VISITED {
+    color: #16516F;
+}
+
+A.submenu_title_01_bold:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+A.submenu_title_02 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 9px;
+    font-variant: small-caps;
+    text-decoration: none;
+    color: #16516F;
+}
+
+A.submenu_title_02:VISITED {
+    color: #16516F;
+}
+
+A.submenu_title_02:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+A.submenu_01_on {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0A2744; /*margin-left: 3px;*/
+    line-height: 16px;
+}
+
+A.submenu_01_on:VISITED {
+    color: #0A2744;
+}
+
+A.submenu_01_on:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+A.submenu_01_off {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    color: #0A2744; /*margin-left: 3px;*/
+    line-height: 16px;
+}
+
+A.submenu_01_off:VISITED {
+    color: #0A2744;
+}
+
+A.submenu_01_off:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+A.submenu_02_on {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    color: #0A2744;
+    padding-left: 3px;
+}
+
+A.submenu_02_on:VISITED {
+    color: #0A2744;
+}
+
+A.submenu_02_on:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+A.submenu_02_off {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    color: #487F97;
+    padding-left: 3px;
+}
+
+A.submenu_02_off:VISITED {
+    color: #487F97;
+}
+
+A.submenu_02_off:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+.submenu_div {
+    margin: 4px 0px 4px 0px;
+}
+
+TD.search_frame_01 {
+    background-color: #89ACBC;
+    background-image: url( /templates/esimo/images/search_backgr_01.gif );
+    padding: 4px 7px 4px 7px;
+}
+
+TD.search_frame_02 {
+    background-color: #89ACBC;
+    padding: 10px 7px 10px 7px;
+}
+
+.search_title_01 {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-variant: small-caps;
+    color: #FFFFFF;
+}
+
+/* Путь юзера */
+
+TABLE.path {
+    margin: 4px 0px 4px 0px;
+}
+
+TD.path {
+    padding: 3px 7px 7px 7px;
+    line-height: 14px;
+}
+
+TD.path_div {
+    background-color: #B0BEC4;
+    background-image: url( /templates/esimo/images/path_div_01.gif );
+    width: 2px;
+}
+
+A.domain {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #005F91;
+    text-decoration: underline;
+}
+
+A.domain:VISITED {
+    color: #005F91;
+}
+
+A.domain:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+/* Контент */
+
+TD.content_border_01 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/content_border_backgr_01.gif );
+    background-repeat: repeat-y;
+}
+
+TD.content_border_02 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/content_border_backgr_02.gif );
+    background-repeat: repeat-y;
+}
+
+TD.content_border_04 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/content_border_backgr_04.gif );
+    background-repeat: repeat-x;
+}
+
+TD.content_backgr_01 {
+    background-color: #E6EBED;
+    background-image: url( /templates/esimo/images/content_backgr_01.gif );
+    background-repeat: repeat-x;
+}
+
+TD.content_top_01 {
+    background-color: #3785A3;
+}
+
+TD.content_top_02 {
+    background-color: #14508A;
+}
+
+TD.column_01 {
+    background-color: #D5DCE0;
+    padding: 7px 4px 7px 4px;
+}
+
+TD.column_02 {
+    background-color: #D5DCE0;
+    padding: 0px 0px 7px 4px;
+}
+
+TABLE.content_frame_01 {
+    background-color: #FFFFFF;
+    border: 1px solid #B2B5BC;
+    padding: 10px 10px 10px 10px;
+}
+
+TD.block_frame_01 {
+    background-color: #FFFFFF;
+    border: 1px solid #B2B5BC;
+    padding: 10px 10px 10px 10px;
+}
+
+.bckgrnd {
+    background-color: #FFFFFF;
+}
+
+.main_content_big {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    line-height: 15px;
+}
+
+.main_content {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #464B5C;
+    line-height: 15px;
+}
+
+.main_content I {
+    font-family: Arial, sans-serif;
+}
+
+.main_content P {
+    margin-top: 9px;
+}
+
+.main_content A {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #62809D;
+    text-decoration: underline;
+}
+
+.main_content A:VISITED {
+    color: #62809D;
+}
+
+.main_content A:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+.main_content UL, .main_content OL {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.main_content LI {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.text_normal {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #464B5C;
+    line-height: 15px;
+}
+
+A.text_normal {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #62809D;
+    text-decoration: underline;
+}
+
+A.text_normal:VISITED {
+    color: #62809D;
+}
+
+A.text_normal:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+.text_small_light {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    color: #FFFFFF;
+    line-height: 12px;
+}
+
+.text_small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    color: #464B5C;
+    line-height: 12px;
+}
+
+A.text_small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #62809D;
+    text-decoration: underline;
+}
+
+A.text_small:VISITED {
+    color: #62809D;
+}
+
+A.text_small:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+.subtitle {
+    /*
+     font-family: "Trebuchet MS", Arial, sans-serif;
+     font-variant: small-caps;
+     */
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #000000;
+    line-height: 14px;
+}
+
+.subtitle_grey {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8F9196;
+    line-height: 14px;
+}
+
+.subtitle A {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #000000;
+    line-height: 14px;
+}
+
+.subtitle_login {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bolder;
+    color: #000000;
+    line-height: 14px;
+}
+
+.main_text {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #464B5C;
+}
+
+A.main_text {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #464B5C;
+    text-decoration: underline;
+}
+
+A.main_text:HOVER {
+    color: #000000;
+    text-decoration: none;
+}
+
+A.subtitle {
+/*font-family: "Trebuchet MS", Arial, sans-serif;*/
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    color: #000000;
+    text-decoration: underline;
+}
+
+A.subtitle:VISITED {
+    color: #000000;
+}
+
+A.subtitle:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+HR.title_underline {
+    background-color: #005F91;
+    color: #005F91;
+    height: 2px;
+}
+
+.main_title_01 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 13px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    color: #005F91;
+    line-height: 14px;
+}
+A.main_title_01 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 13px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    color: #005F91;
+    line-height: 14px;
+}
+
+.main_title_02 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 12px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    color: #A3BBD3;
+    line-height: 13px;
+}
+
+.main_title_03 {
+    font-family: Arial, sans-serif;
+    font-size: 13px; /*font-variant: small-caps;*/
+    font-weight: bold;
+    background-color: #005F91;
+    color: #ffffff; /*line-height: 14px;*/
+}
+
+A.main_title_02 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 12px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    color: #8199B1;
+    text-decoration: none;
+}
+
+A.main_title_02:VISITED {
+    color: #8199B1;
+}
+
+A.main_title_02:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+TABLE.main_title_02 {
+    margin-bottom: 7px;
+}
+
+IMG.main_title_02 {
+    margin: 2px 4px 0px 0px;
+}
+
+.tab {
+    /*background-color: #B2B5BC;*/
+    border: 1px solid #E6EBED;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+}
+
+.tab td{
+		height: 22px;
+		padding: 3px;
+}
+
+.tab TD.name {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    padding: 3px 3px 4px 3px;
+    background-color: #ffffff;
+}
+
+.tab TD.name1 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    padding: 3px 3px 4px 3px;
+    background-color: #E6EBED;
+}
+
+.tab TD.head {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    padding: 2px 7px 2px 7px;
+    background-color: #D5DCE0;
+    /*border: 1px outset #B2B5BC;*/
+}
+
+.tab TD.subhead {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #464B5C;
+    text-align: center;
+    padding: 2px 7px 2px 7px;
+    /*border: 1px outset #B2B5BC;*/
+    background-color: #ffffff;
+}
+
+.tab TD.data {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 3px 7px 3px 7px;
+    background-color: #FFFFFF; /*border: 1px #B2B5BC;*/
+
+}
+.tab TR.data {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 3px 7px 3px 7px;
+    background-color: #FFFFFF; /*border: 1px #B2B5BC;*/
+
+}
+.tab TD.data1 {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 3px 7px 3px 7px;
+    background-color: #FFFFFF;
+    border: 1px #B2B5BC;
+
+}
+.tab TD.data_grey {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 3px 7px 3px 7px;
+    background-color: #E6EBED; /*border: 1px  #B2B5BC;*/
+
+}
+.tab TR.data_grey {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 3px 7px 3px 7px;
+    background-color: #E6EBED; /*border: 1px  #B2B5BC;*/
+
+}
+
+.tab TD.data_old {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 2px 7px 2px 7px;
+    background-color: #FFFFFF;
+    border: 1px outset #B2B5BC;
+}
+
+.tab TD.data_old_grey {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    padding: 2px 7px 2px 7px;
+    background-color: #E6EBED;
+    border: 1px outset #B2B5BC;
+}
+
+TD.data A, A.data {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    text-decoration: underline;
+}
+
+TD.data A:VISITED, A.data:VISITED {
+    color: #62809D;
+}
+
+TD.data A:HOVER, A.data:HOVER {
+    color: #0A2744;
+    text-decoration: none;
+}
+
+TD.data_grey A, A.data_grey {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #464B5C;
+    text-decoration: underline;
+}
+
+TD.data_grey A:VISITED, A.data_grey:VISITED {
+    color: #62809D;
+}
+
+TD.data_grey A:HOVER, A.data_grey:HOVER {
+    color: #0A2744;
+    text-decoration: none;
+}
+
+font.note {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: #464B5C;
+}
+
+.tab TD.note {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: #464B5C;
+    padding: 4px 3px 3px 3px;
+    background-color: #E6EBED;
+}
+
+TD.note A, A.note {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: #62809D;
+    text-decoration: underline;
+}
+
+TD.note A:VISITED, A.note:VISITED {
+    color: #62809D;
+}
+
+TD.note A:HOVER, A.note:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+IMG.pict {
+    background-color: #E6EBED;
+    border: 1px outset #B2B5BC;
+}
+
+A IMG.pict {
+    border: 1px solid #005F91;
+}
+
+FORM.form {
+    background-color: #E6EBED;
+    padding: 7px 7px 7px 7px;
+    margin: 9px 0px 9px 0px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+}
+
+Select {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+}
+
+.grey_option {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: gray;
+}
+
+FORM.form DIV {
+    margin-bottom: 4px;
+}
+
+.form_name {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+.element_name {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #7F838F;
+    vertical-align: top;
+}
+
+.input_text {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px; /*color: #9296A0;*/
+    color: #000000;
+}
+
+HR.form_underline {
+    background-color: #C3C6CD;
+    color: #C3C6CD;
+    height: 1px;
+}
+
+.btn {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #005F91;
+}
+
+DIV.rubric {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #9296A0;
+    background-color: #E0E5E8;
+    padding: 4px 7px 4px 7px;
+    margin: 4px 0px 4px 0px;
+}
+
+A.more_info {
+    font-family: Tahoma, sans-serif;
+    font-size: 9px;
+    color: #62809D;
+    text-decoration: underline;
+    margin: 4px 0px 4px 0px;
+}
+
+A.more_info:VISITED {
+    color: #62809D;
+}
+
+A.more_info:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+DIV.normal {
+    margin-bottom: 12px;
+}
+
+DIV.alarm {
+    background-color: #F0F2F4;
+    background-image: url( /templates/esimo/images/backgr_alarm.gif );
+    padding: 7px 10px 7px 14px;
+    margin-bottom: 12px;
+}
+
+DIV.error {
+    background-color: #DD0000;
+    background-image: url( /templates/esimo/images/backgr_error.gif );
+    padding: 7px 10px 7px 14px;
+    margin-bottom: 12px;
+}
+
+.terror {
+    color: #DD0000
+}
+
+DIV.important {
+    background-color: #F0F2F4;
+    background-image: url( /templates/esimo/images/backgr_important.gif );
+    padding: 7px 10px 7px 14px;
+    margin-bottom: 12px;
+}
+
+TD.center_block_01 {
+    padding: 0px 10px 0px 0px;
+}
+
+TD.center_block_02 {
+    padding: 0px 0px 0px 10px;
+}
+
+/* Якорь на начало документа */
+
+DIV.scroll_up {
+    padding: 4px 12px 0px 0px;
+}
+
+/* Дубликат меню */
+
+DIV.bottom_menu {
+    padding: 7px 0px 7px 0px;
+}
+
+/* Статус страницы */
+
+.status {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #7F838F;
+}
+
+A.status {
+    color: #62809D;
+    text-decoration: underline;
+}
+
+A.status:VISITED {
+    color: #62809D;
+}
+
+A.status:HOVER {
+    color: #0A2744;
+    text-decoration: underline;
+}
+
+TD.status {
+    padding: 0px 6px 0px 6px;
+}
+
+/* Подвал страницы */
+
+TD.foot_backgr_01 {
+    background-color: #145A7A;
+    background-image: url( /templates/esimo/images/foot_backgr_01.gif );
+    background-repeat: repeat-x;
+}
+
+TD.foot_border_01 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/foot_border_backgr_01.gif );
+    background-repeat: repeat-y;
+}
+
+TD.foot_border_02 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/foot_border_backgr_02.gif );
+    background-repeat: repeat-y;
+}
+
+TD.foot_border_03 {
+    background-color: #D3DBDF;
+    background-image: url( /templates/esimo/images/foot_border_backgr_03.gif );
+    background-repeat: repeat-x;
+}
+
+/* Статистика */
+
+.statistics {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #C7DCE7;
+}
+
+TD.statistics {
+    padding: 9px 12px 6px 12px;
+}
+
+TD.statistics_underline {
+    background-color: #80A7BC;
+    background-image: url( /templates/esimo/images/statistics_underline.gif );
+    background-repeat: repeat-x;
+}
+
+/* Копирайты */
+
+.copyrights {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 10px;
+    color: #97BDD2;
+}
+
+A.copyrights {
+    color: #C7DCE7;
+    text-decoration: underline;
+}
+
+A.copyrights:VISITED {
+    color: #C7DCE7;
+}
+
+A.copyrights:HOVER {
+    color: #97BDD2;
+    text-decoration: underline;
+}
+
+TD.copyrights {
+    padding: 6px 12px 6px 12px;
+}
+
+td.table_bg {
+    background-image: url( /templates/esimo/images/submenu_border_backgr_01.gif );
+}
+
+p.offset {
+/*padding-top: 5px;*/
+    margin-top: 5px;
+}
+
+DIV.leftmenu {
+    margin-left: 5px;
+}
+
+A.registration {
+    color: #46565E;
+    text-decoration: none;
+}
+
+A.registration:HOVER {
+    text-decoration: underline;
+}
+
+TD.other_day {
+    FONT-SIZE: 11px;
+    BACKGROUND-COLOR: #f3f3f3
+}
+
+TD.holiday {
+    FONT-SIZE: 11px
+}
+
+li.pages {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+font.message {
+    font-size: 13px;
+    color: #B90000;
+}
+
+font.details {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #464B5C;
+    line-height: 15px;
+}
+
+td.treeLink {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+div.point {
+    background-color: #E6EBED;
+    padding: 7px 7px 7px 7px;
+    margin: 9px 0px 9px 0px;
+    border: 1px solid #B2B5BC;
+}
+
+ul.noLi {
+    list-style-type: none;
+}
+.header {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+.reqFieldError, .reqFieldHighlight{
+	color: Red;
+  font-weight: bold;
+}
+.reqFieldHighlight{
+	color: Blue;
+}
+.reqFieldMark{
+	font-size: 12px;
+	font-weight: bold;
+	color: Red;
+}
+#mni_name, #mni_aim, #mni_spec, #exp_ecology, #exp_particip_rf, #exp_use_result,
+#tech_hydrograph,
+#tech_hydrograph,
+#tech_hydroacustic,
+#tech_magnitometr,
+#tech_seismic,
+#tech_meteorolog,
+#tech_oceanograph,
+#tech_bioresearch,
+#tech_probation,
+#tech_divingdev,
+#tech_ancoreddev,
+#tech_coupleddev,
+#tech_submarine,
+#tech_planes,
+#tech_otherdev,
+.textarea500
+{
+	width: 500px;
+	height: 22px;
+}
+
+.textarea185{
+	height: 22px;
+	width: 185px;
+}
+/*
+.textarea185:focus{
+	height: 140px;
+	width: 500px;
+	border: 2px #000 solid;
+}.textarea185:blur{
+	height: 22px;
+	width: 185px;
+	border: 0px;
+}*/
+.input100{
+	width: 100px;
+}
+.trHighLighted:hover{
+	background-color: #E6E6FA
+}

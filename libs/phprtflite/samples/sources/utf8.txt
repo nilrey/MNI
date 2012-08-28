@@ -1,0 +1,5 @@
+English text: Hello world
+Lithuanian text: Lietuviškos raidės ąčęėįšųūžĄČĘĖĮŠŲŪŽ
+French text: le code à côté de
+Symbol: ■
+Russian text: русский техт.

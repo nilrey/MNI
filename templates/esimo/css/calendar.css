@@ -1,0 +1,59 @@
+td.cal_date {
+    background-color: #ACCADB;
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    padding: 2px;
+}
+td.currentDay {
+    background-color: #F0F2F3;
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;
+    padding: 2px;
+}
+td.currentDay A {
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;    
+}
+td.currentDay A:VISITED {
+    color: black;
+}
+td.selectedDay {
+    background-color: #144D84;
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    padding: 2px;
+}
+td.selectedDay A {
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;    
+}
+td.selectedDay A:VISITED {
+    color: white;
+}
+td.otherDay {
+    background-color: #ACCADB;
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;
+    padding: 2px;
+}
+td.otherDay A {
+    font-family: Tahoma, serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;    
+}
+td.otherDay A:VISITED {
+    color: black;
+}
