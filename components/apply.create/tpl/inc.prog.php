@@ -139,7 +139,7 @@
 	 <tbody>
 	 <tr>
 	 	<td class="head">№ точки</td>
-	 	<td class="head">Название ледника</td>
+	 	<td class="head">Вид работ на льду</td>
 	 	<td class="head">Географическая широта<br />(в градусах, минутах и долях минут)</td>
 	 	<td class="head">Географическая долгота<br />(в градусах, минутах и долях минут)</td>
 	 	<td class="head">&nbsp</td>

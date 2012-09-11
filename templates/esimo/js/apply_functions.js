@@ -553,7 +553,7 @@ function addMNITypeBlock(type){
 	newRow += '<input type="text" name="MNITYPE['+type+']['+counterMNITypeBlock+'][amount]" id="'+type+counterMNITypeBlock+'_amount">';
 	newRow += '</td>';
 	newRow += '<td>';
-		newRow += '<input type="button" onclick=" if(confirmDelete()) deleteTr('+counterMNITypeBlock+', \''+type+'\')" value="Удалить">';
+		newRow += '<input type="button" onclick=" if(confirmDelete()) deleteTr('+counterMNITypeBlock+', \''+type+'\'); setValueToUseResult()" value="Удалить">';
 	newRow += '</td>';
 	newRow += '</tr>';
 	$("#table"+type+" > tbody").append(newRow);
@@ -644,5 +644,6 @@ $(document).ready( function (){
 	setTextareaDefaultValue('mni_spec', txtWidth, txtHeight, txtWidth, newHeight);
 	setTextareaDefaultValue('exp_ecology', txtWidth, txtHeight, txtWidth, newHeight);
 	setTextareaDefaultValue('exp_particip_rf', txtWidth, txtHeight, txtWidth, newHeight);
-	setTextareaDefaultValue('exp_use_result', txtWidth, txtHeight, txtWidth, newHeight);
+//	setTextareaDefaultValue('exp_use_result', txtWidth, txtHeight, txtWidth, newHeight);
+	setTextareaResizeNew('exp_use_result', txtWidth, txtHeight, txtWidth, newHeight);
 } );

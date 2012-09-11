@@ -22,8 +22,50 @@ function generateMNIType(type){
 	return row;
 }
 
+function getOrgByMniType(idLetter){
+	switch (idLetter){
+<?
+		$strOrgs = '';
+		if(!empty($arResult['REFBOOK']['mnitypeGroups'] )){
+			foreach (array('M', 'H', 'D', 'P', 'B', 'G', 'C', 'I', 'L', 'S', 'F') as $letter){
+				$strOrgs = '';
+				echo "\t\tcase '{$letter}':";
+				foreach ($arResult['REFBOOK']['mnitypeGroups'][$letter] as $item) {
+					$strOrgs .= ",'{$item['name']}'";
+				}
+				echo "\n\t\t\tvar arOrgs = [".substr($strOrgs, 1)."];";
+				echo "\n\t\tbreak;";
+			}
+		}?>
+
+		default:
+			var arOrgs = [];
+		break;
+	}
+	return arOrgs;
+}
+
+function setValueToUseResult(){
+	$('#exp_use_result').empty();
+	var tmpValue = '';
+	$('#tablemnitypes > tbody tr').each( function(){
+		tmpValue = $(this).find('[id$=_mnitype]');
+		if(tmpValue.length > 0){
+			var arOrgs = getOrgByMniType(tmpValue.val()) ;
+				for(var i = 0; i< arOrgs.length; i++){
+					var strValue = $('#exp_use_result').val();
+					if (strValue.indexOf(arOrgs[i]) == -1 ){
+						$('#exp_use_result').append(arOrgs[i]+'\n');
+					}
+				}
+		}
+	});
+	return true;
+}
+
 function generateMNISort(type, counter, elementId, placer){
 //	alert(type +', '+ counter +' , '+ elementId +' , '+placer);
+	setValueToUseResult();
 	var id = $('#'+elementId).val();
 	if(id.length == 1){
 		var row = '<select  name="MNITYPE['+type+']['+counter+'][mnisort]" id="'+type+counter+'_mnisort"><option value="">';

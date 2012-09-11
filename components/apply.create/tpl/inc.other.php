@@ -8,7 +8,7 @@
 </div>
 <p class="subtitle">15. <?=requiredTitle('Использование результатов морских научных исследований, включая открытое опубликование и международный обмен (материалы исследований, планируемые для передачи иностранным государствам, их юридическим лицам и гражданам, международным организациям)', 'exp_use_result')?></p>
 <div class="shiftLeft20">
-	<textarea name="EXPEDITION[use_result]" id="exp_use_result"><?=$arResult['EXPEDITION']['exp_use_result']?></textarea>
+	<textarea name="EXPEDITION[use_result]" id="exp_use_result" readonly><?=$arResult['EXPEDITION']['exp_use_result']?></textarea>
 </div>
 <p class="subtitle">16. Срок представления предварительного отчета</p>
 <?

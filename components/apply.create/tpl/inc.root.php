@@ -62,13 +62,13 @@
  <?php echo (!empty($scripts) ? "<script> $(function(){ {$scripts} });</script>" : '');
  $scripts = "";?>
 <br>
-<p class="subtitle">7. Названия потров Российской Федерации, дата, (YYYY-MM-DD) и цель их посещения (для иностранных судов)</p>
+<p class="subtitle">7. Названия портов Российской Федерации, дата, (YYYY-MM-DD) и цель их посещения (для иностранных судов)</p>
  <table id="tableports" class="tab">
  <tbody>
  <tr>
  	<td class="head">№</td>
  	<td class="head">Дата прохождения<br />(YYYY-MM-DD)</td>
- 	<td class="head">Название</td>
+ 	<td class="head">Название порта</td>
  	<td class="head">Цель посещения (для иностранных судов)</td>
  	<td class="head">&nbsp</td>
  </tr>

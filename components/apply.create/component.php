@@ -10,8 +10,7 @@ foreach ($arResult['REFBOOK']['mnisort'] as $arValue) {
 	$arResult['REFBOOK']['mnisort_ord'][$arValue['mnitype']][] = $arValue;
 }
 $arResult['REFBOOK']['mniunit'] = getReferenceBook('mniunit');
-
-
+$arResult['REFBOOK']['mnitypeGroups'] = getReferenceBookMTG();
 
 if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST['APPLICANT']['fio'] )) ){
 	// SET EXPEDITION RECORD FIRST

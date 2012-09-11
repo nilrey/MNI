@@ -40,6 +40,17 @@ function prepareRefBooksValue($value){
 	return $value;
 }
 
+function getReferenceBookMTG(){
+	$arTmp = getMNITypeGroups();
+	$arReturn = array();
+	if(is_array($arTmp) && count($arTmp) > 0){
+		foreach ($arTmp as $arValue) {
+			$arReturn[$arValue['mnitype']][] = array('group_id' => $arValue['group_id'], 'name' => $arValue['name']);
+		}
+	}
+	return $arReturn;
+}
+
 function deleteQuery($sql, $table_name='', $id=0 ){
 	global $DB;
 	if($id>0 && !empty($table_name)){

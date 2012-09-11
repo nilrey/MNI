@@ -1,5 +1,7 @@
 <?
 session_start();
+session_regenerate_id(true);
+
 if(is_file($_SERVER["DOCUMENT_ROOT"].'/libs/functions/output.php')){
 	include_once('libs/functions/output.php');
 	if(!outputHandlerOn()){
@@ -11,7 +13,7 @@ if(is_file($_SERVER["DOCUMENT_ROOT"].'/libs/functions/output.php')){
 }
 
 try{
-	
+
 include_once('const.php');
 include_once('config.php');
 include_once('libs/classes/logwriter.class.php');
