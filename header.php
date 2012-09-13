@@ -1,6 +1,6 @@
 <?
 session_start();
-session_regenerate_id(true);
+//session_regenerate_id(true);
 
 if(is_file($_SERVER["DOCUMENT_ROOT"].'/libs/functions/output.php')){
 	include_once('libs/functions/output.php');
@@ -24,6 +24,7 @@ include_once('libs/classes/page.class.php');
 include_once('libs/functions/hdDatabase.php');
 include_once('libs/functions/support.php');
 include_once('libs/functions/mail.php');
+include_once('libs/functions/htmlWrapper.php');
 //include_once('libs/classes/menu.class.php');
 
 $CONF = new Config();

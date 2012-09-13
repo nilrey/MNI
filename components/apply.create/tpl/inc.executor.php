@@ -56,7 +56,12 @@
 					<td><?=requiredTitle('E-mail', 'executant_email')?>:</td><td><input type="text" class="input_text" name="EXECUTOR[email]" id="executant_email" value="<?=$arResult['EXECUTOR']['email']?>" size='70'></td>
 				</tr>
 				<tr class="trHighLighted">
-					<td>Форма участия организации:</td><td><input type="text" class="input_text" name="EXECUTOR[org_particip]" id="executant_org_particip" value="<?=$arResult['EXECUTOR']['org_particip']?>" size='70'></td>
+					<td>Форма участия организации:</td><td>
+					<?
+					print htmlWrapper::getSelectSimple($arResult['REFBOOK']['org_particip'], "EXECUTOR[org_particip]", "executant_org_particip", 'onchange="if(this.value==8){$(\'#block_executant_org_particip_oth\').fadeIn(150)}else{$(\'#block_executant_org_particip_oth\').fadeOut(150); $(\'#executant_org_particip_oth\').val(\'\');}"', $arResult['EXECUTOR']['org_particip']);
+					?>
+					<div id="block_executant_org_particip_oth" style="display: <?=(empty($arResult['EXECUTOR']['org_particip_oth']) ? 'none' : 'block')?>">
+					<input type="text" class="input_text" name="EXECUTOR[org_particip_oth]" id="executant_org_particip_oth" value="<?=$arResult['EXECUTOR']['org_particip_oth']?>" size='70'></div></td>
 				</tr>
 				<tr class="trHighLighted">
 					<td>Количество представителей:</td><td><input type="text" class="input_text" name="EXECUTOR[org_particip_ammount]" id="executant_org_particip_ammount" value="<?=$arResult['EXECUTOR']['org_particip_ammount']?>"></td>

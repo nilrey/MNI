@@ -40,7 +40,13 @@
 					<td><?=requiredTitle('E-mail', 'applicant_email')?>:</td><td><input type="text" class="input_text" name="APPLICANT[email]" id="applicant_email" value="<?=$arResult['APPLICANT']['email']?>" size='70'></td>
 				</tr>
 				<tr class="trHighLighted">
-					<td>Форма участия организации:</td><td><input type="text" class="input_text" name="APPLICANT[org_particip]" id="applicant_org_particip" value="<?=$arResult['APPLICANT']['org_particip']?>" size='70'></td>
+					<td>Форма участия организации:</td><td>
+					<?
+					print htmlWrapper::getSelectSimple($arResult['REFBOOK']['org_particip'], "APPLICANT[org_particip]", "applicant_org_particip", 'onchange="if(this.value==8){$(\'#block_applicant_org_particip_oth\').fadeIn(150)}else{$(\'#block_applicant_org_particip_oth\').fadeOut(150); $(\'#applicant_org_particip_oth\').val(\'\');}"', $arResult['APPLICANT']['org_particip']);
+					?>
+					<div id="block_applicant_org_particip_oth" style="display: <?=(empty($arResult['APPLICANT']['org_particip_oth']) ? 'none' : 'block')?>">
+					<input type="text" class="input_text" name="APPLICANT[org_particip_oth]" id="applicant_org_particip_oth" value="<?=$arResult['APPLICANT']['org_particip_oth']?>" size='70'></div>
+					</td>
 				</tr>
 				<tr class="trHighLighted">
 					<td>Количество представителей:</td><td><input type="text" class="input_text" name="APPLICANT[org_particip_ammount]" id="applicant_org_particip_ammount" value="<?=$arResult['APPLICANT']['org_particip_ammount']?>"></td>
