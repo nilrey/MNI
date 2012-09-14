@@ -8,6 +8,7 @@ include_once('config.php');
 include_once('libs/classes/mysql.class.php');
 include_once('libs/functions/hdDatabase.php');
 include_once('libs/functions/support.php');
+include_once('libs/functions/htmlWrapper.php');
 header('Content-Type: text/html; charset=utf-8');
 //header("Cache-Control: no-cache");
 $CONF = new Config();
@@ -15,6 +16,7 @@ $DB = new clMySQLi($CONF->mysqlHost, $CONF->mysqlUser, $CONF->mysqlPass, $CONF->
 $DB->set_charset("utf8");
 $fields = '';
 $arCountries = getReferenceBook('countries');
+$arOrgParticip = getReferenceBook('org_particip', 'id');
 if(!empty($_REQUEST['action'])){
 
 	$counter = intval($_REQUEST['counter']);
@@ -25,6 +27,7 @@ if(!empty($_REQUEST['action'])){
 		foreach ($arCountries as $country){
 			$countriesList .= "<option value='{$country['id']}'>{$country['name']}";
 		}
+		$selectOrgParticip = htmlWrapper::getSelectSimple($arOrgParticip, "PARTICIPANT_NEW[{$counter}][org_particip]", "participant_org_particip{$counter}", 'onchange="if(this.value==8){$(\'#block_participant_org_particip_oth'.$counter.'\').fadeIn(150)}else{$(\'#block_participant_org_particip_oth'.$counter.'\').fadeOut(150); $(\'#participant_org_particip_oth'.$counter.'\').val(\'\');}"', 0);
 
 			$fields =
 "
@@ -52,31 +55,36 @@ if(!empty($_REQUEST['action'])){
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>".requiredTitle('Город', 'participant_city'.$counter).":</td><td><input type=\"text\" size=\"70\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][city]\" id=\"participant_city{$counter}\" value=\"\"></td>
+					<td>".requiredTitle('Город', 'participant_city'.$counter).":</td><td><input type=\"text\" size=\"70\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][city]\" id=\"participant_city{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
 					<td>".requiredTitle('Юридический адрес', 'participant_legaladdress'.$counter).":</td><td><TEXTAREA COLS=\"40\" ROWS=\"4\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][legaladdress]\" id=\"participant_legaladdress{$counter}\"></TEXTAREA></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>".requiredTitle('Телефон', 'participant_phone'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][phone]\" id=\"participant_phone{$counter}\" value=\"\"></td>
+					<td>".requiredTitle('Телефон', 'participant_phone'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][phone]\" id=\"participant_phone{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>Телефакс:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][fax]\" id=\"participant_fax{$counter}\" value=\"\"></td>
+					<td>Телефакс:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][fax]\" id=\"participant_fax{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>Телекс:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][telex]\" id=\"participant_telex{$counter}\" value=\"\"></td>
+					<td>Телекс:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][telex]\" id=\"participant_telex{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>".requiredTitle('E-mail', 'participant_email'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][email]\" id=\"participant_email{$counter}\" value=\"\"></td>
+					<td>".requiredTitle('E-mail', 'participant_email'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][email]\" id=\"participant_email{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>Форма участия организации:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip]\" id=\"participant_org_particip{$counter}\" value=\"\"></td>
+					<td>Форма участия организации:</td><td>".$selectOrgParticip."
+					<div id='block_participant_org_particip_oth{$counter}' style='display: none'>
+					<input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip_oth]\" id=\"participant_org_particip_oth{$counter}\" value=\"\" size='70'>
+					</div>
+					</td>
 				</tr>
 				<tr class='trHighLighted'>
 					<td>Количество представителей:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip_ammount]\" id=\"participant_org_particip_ammount{$counter}\" value=\"\"></td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>Форма участия представителей:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip_type]\" id=\"participant_org_particip_type{$counter}\" value=\"\"></td>
+					<td>Форма участия представителей:</td><td>
+					<input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip_type_oth]\" id=\"participant_org_particip_type_oth{$counter}\" value=\"\" size='70'></td>
 				</tr>
 			</table>
 			</div>

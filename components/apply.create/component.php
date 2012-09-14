@@ -1,5 +1,5 @@
 <?php
-$showPost = false ;
+$showPost = false;
 global $DB;
 $arError = array();
 $arResult['REFBOOK']['countries'] = getReferenceBook('countries');
@@ -353,7 +353,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 							$arFields['telex'] = prepareValue($arItem['telex']);
 							$arFields['email'] = prepareValue($arItem['email']);
 							$arFields['org_particip'] = prepareValue($arItem['org_particip']);
-							$arFields['org_particip_oth'] = prepareValue($_POST[$blockKey]['org_particip_oth']);
+							$arFields['org_particip_oth'] = prepareValue($arItem['org_particip_oth']);
 							$arFields['org_particip_ammount'] = prepareValue($arItem['org_particip_ammount']);
 							$arFields['org_particip_type'] = prepareValue($arItem['org_particip_type']);
 							$table_name = 'mon_exp_org';
@@ -395,7 +395,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 								$arFields['telex'] = prepareValue($arItem['telex']);
 								$arFields['email'] = prepareValue($arItem['email']);
 								$arFields['org_particip'] = prepareValue($arItem['org_particip']);
-								$arFields['org_particip_oth'] = prepareValue($_POST[$blockKey]['org_particip_oth']);
+								$arFields['org_particip_oth'] = prepareValue($arItem['org_particip_oth']);
 								$arFields['org_particip_ammount'] = prepareValue($arItem['org_particip_ammount']);
 								$arFields['org_particip_type'] = prepareValue($arItem['org_particip_type']);
 								$table_name = 'mon_exp_org';
