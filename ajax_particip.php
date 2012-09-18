@@ -73,6 +73,9 @@ if(!empty($_REQUEST['action'])){
 					<td>".requiredTitle('E-mail', 'participant_email'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][email]\" id=\"participant_email{$counter}\" value=\"\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
+					<td>Skype:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][skype]\" id=\"participant_skype{$counter}\" value=\"{$arItem['skype']}\" size='70'></td>
+				</tr>
+				<tr class='trHighLighted'>
 					<td>Форма участия организации:</td><td>".$selectOrgParticip."
 					<div id='block_participant_org_particip_oth{$counter}' style='display: none'>
 					<input type=\"text\" class=\"input_text\" name=\"PARTICIPANT_NEW[{$counter}][org_particip_oth]\" id=\"participant_org_particip_oth{$counter}\" value=\"\" size='70'>

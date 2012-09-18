@@ -40,6 +40,9 @@
 					<td><?=requiredTitle('E-mail', 'applicant_email')?>:</td><td><input type="text" class="input_text" name="APPLICANT[email]" id="applicant_email" value="<?=$arResult['APPLICANT']['email']?>" size='70'></td>
 				</tr>
 				<tr class="trHighLighted">
+					<td>Skype:</td><td><input type="text" class="input_text" name="APPLICANT[skype]" id="applicant_skype" value="<?=$arResult['APPLICANT']['skype']?>" size='70'></td>
+				</tr>
+				<tr class="trHighLighted">
 					<td>Форма участия организации:</td><td>
 					<?
 					print htmlWrapper::getSelectSimple($arResult['REFBOOK']['org_particip'], "APPLICANT[org_particip]", "applicant_org_particip", 'onchange="if(this.value==8){$(\'#block_applicant_org_particip_oth\').fadeIn(150)}else{$(\'#block_applicant_org_particip_oth\').fadeOut(150); $(\'#applicant_org_particip_oth\').val(\'\');}"', $arResult['APPLICANT']['org_particip']);

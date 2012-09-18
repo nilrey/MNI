@@ -56,6 +56,9 @@
 					<td><?=requiredTitle('E-mail', 'executant_email')?>:</td><td><input type="text" class="input_text" name="EXECUTOR[email]" id="executant_email" value="<?=$arResult['EXECUTOR']['email']?>" size='70'></td>
 				</tr>
 				<tr class="trHighLighted">
+					<td>Skype:</td><td><input type="text" class="input_text" name="EXECUTOR[skype]" id="executant_skype" value="<?=$arResult['EXECUTOR']['skype']?>" size='70'></td>
+				</tr>
+				<tr class="trHighLighted">
 					<td>Форма участия организации:</td><td>
 					<?
 					print htmlWrapper::getSelectSimple($arResult['REFBOOK']['org_particip'], "EXECUTOR[org_particip]", "executant_org_particip", 'onchange="if(this.value==8){$(\'#block_executant_org_particip_oth\').fadeIn(150)}else{$(\'#block_executant_org_particip_oth\').fadeOut(150); $(\'#executant_org_particip_oth\').val(\'\');}"', $arResult['EXECUTOR']['org_particip']);
@@ -98,5 +101,5 @@
 			</div> <!-- \ executantPerson -->
 			</div> <!-- \ border2px -->
 			<script>$(document).ready( function(){
-					$('#placer_executant_country').append(getCountriesSelect('EXECUTOR[country]', 'executant_country', <?=$arResult['EXECUTOR']['country']?>, '') );
+					$('#placer_executant_country').append(getCountriesSelect('EXECUTOR[country]', 'executant_country', '<?=$arResult['EXECUTOR']['country']?>', '') );
 				});</script>

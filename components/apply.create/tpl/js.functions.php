@@ -46,18 +46,29 @@ function getOrgByMniType(idLetter){
 }
 
 function setValueToUseResult(){
-	$('#exp_use_result').empty();
+	var separator = '\n';
+	var exp_use_result = $('#exp_use_result');
+	if($.browser.msie){
+		separator = '\n\r';
+	}
 	var tmpValue = '';
+	var preText = 'Список организаций получающих обязательный экземпляр отчета:'+separator;
+
+	exp_use_result.empty();
+	if($('#tablemnitypes > tbody tr').length > 1){
+		exp_use_result.append(preText);
+	}
+
 	$('#tablemnitypes > tbody tr').each( function(){
 		tmpValue = $(this).find('[id$=_mnitype]');
 		if(tmpValue.length > 0){
 			var arOrgs = getOrgByMniType(tmpValue.val()) ;
-				for(var i = 0; i< arOrgs.length; i++){
-					var strValue = $('#exp_use_result').val();
-					if (strValue.indexOf(arOrgs[i]) == -1 ){
-						$('#exp_use_result').append(arOrgs[i]+'\n');
-					}
+			for(var i = 0; i< arOrgs.length; i++){
+				var strValue = $('#exp_use_result').val();
+				if (strValue.indexOf(arOrgs[i]) == -1 ){
+					exp_use_result.append(arOrgs[i]+separator);
 				}
+			}
 		}
 	});
 	return true;

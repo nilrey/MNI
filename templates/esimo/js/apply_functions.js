@@ -253,6 +253,22 @@ function deleteTr(nmbr, type){
 		$('#table'+type+' > tbody tr:eq('+i+') #'+type+'_num').val(i);
 	}
 }
+
+function deleteTrMNIType(nmbr, type){
+//	$('#table'+type+' > tbody').remove();
+	$('#table'+type+' > tbody tr').each(function(index, value){
+		alert(index+' '+nmbr);
+		if(index+1 == nmbr){
+			$(this).remove();
+		}
+	});
+
+	for( i=1; i< $('#table'+type+' > tbody tr').length; i++){
+		$('#table'+type+' > tbody tr:eq('+i+') td:first').text(i);
+		$('#table'+type+' > tbody tr:eq('+i+') #'+type+'_num').val(i);
+	}
+
+}
 function deleteTrComplete(nmbr, type, id){
 	$.post("http://"+server_host+"/ajax.php", { type: type, elementId: id, action: "deleteCoord" }, function() {}, "json");
 	deleteTr(nmbr, type);
@@ -537,6 +553,7 @@ function checkCoord(parent, child){
 }
 
 function addMNITypeBlock(type){
+	alert(counterMNITypeBlock);
 	var newRow = '<tr id="tr'+counterMNITypeBlock+'">';
 	newRow += '<td>'+counterMNITypeBlock+'</td>';
 	newRow += '<td><input type="hidden" name="MNITYPE['+type+']['+counterMNITypeBlock+'][num]" id="'+type+'_num" value="">';
@@ -553,9 +570,10 @@ function addMNITypeBlock(type){
 	newRow += '<input type="text" name="MNITYPE['+type+']['+counterMNITypeBlock+'][amount]" id="'+type+counterMNITypeBlock+'_amount">';
 	newRow += '</td>';
 	newRow += '<td>';
-		newRow += '<input type="button" onclick=" if(confirmDelete()) deleteTr('+counterMNITypeBlock+', \''+type+'\'); setValueToUseResult()" value="Удалить">';
+	newRow += '<input type="button" onclick=" if(confirmDelete()){ deleteTrMNIType(\''+counterMNITypeBlock+'\', \''+type+'\'); setValueToUseResult()}" value="Удалить">';
 	newRow += '</td>';
 	newRow += '</tr>';
+//	alert(newRow);
 	$("#table"+type+" > tbody").append(newRow);
 	for( i=1; i< $('#table'+type+' > tbody tr').length; i++){
 		$('#table'+type+' > tbody tr:eq('+i+') td:first').text(i);

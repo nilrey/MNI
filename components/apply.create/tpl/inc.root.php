@@ -68,7 +68,7 @@
  <tr>
  	<td class="head">№</td>
  	<td class="head">Дата прохождения<br />(YYYY-MM-DD)</td>
- 	<td class="head">Название порта</td>
+ 	<td class="head">Название порта РФ</td>
  	<td class="head">Цель посещения (для иностранных судов)</td>
  	<td class="head">&nbsp</td>
  </tr>

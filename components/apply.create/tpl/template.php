@@ -59,7 +59,11 @@ if(isset($_REQUEST['act'])){
 
 	}else{
 
-
+//echo '<br>';
+//$a = 27.89;
+//$minut = ( ($a - intval($a) ) / 60);
+//$b = round($minut, 6);
+//echo round($b*60, 2)
 ?>
 
 <div class="section">

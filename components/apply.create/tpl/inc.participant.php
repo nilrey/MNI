@@ -61,6 +61,9 @@ $fields = "
 					<td>".requiredTitle('E-mail', 'participant_email'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT[{$counter}][email]\" id=\"participant_email{$counter}\" value=\"{$arItem['email']}\" size='70'></td>
 				</tr>
 				<tr class='trHighLighted'>
+					<td>Skype:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT[{$counter}][skype]\" id=\"participant_skype{$counter}\" value=\"{$arItem['skype']}\" size='70'></td>
+				</tr>
+				<tr class='trHighLighted'>
 					<td>Форма участия организации:</td><td>
 					".htmlWrapper::getSelectSimple($arResult['REFBOOK']['org_particip'], "PARTICIPANT[{$counter}][org_particip]", "participant_org_particip{$counter}", 'onchange="if(this.value==8){$(\'#block_participant_org_particip_oth'.$counter.'\').fadeIn(150)}else{$(\'#block_participant_org_particip_oth'.$counter.'\').fadeOut(150); $(\'#participant_org_particip_oth'.$counter.'\').val(\'\');}"', $arItem['org_particip'])."
 					<div id=\"block_participant_org_particip_oth{$counter}\" style=\"display: ".($arItem['org_particip'] == 8 ? 'block' : 'none')."\">

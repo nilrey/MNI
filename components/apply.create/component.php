@@ -109,6 +109,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 					$arFields['fax'] = prepareValue($_POST[$blockKey]['fax']);
 					$arFields['telex'] = prepareValue($_POST[$blockKey]['telex']);
 					$arFields['email'] = prepareValue($_POST[$blockKey]['email']);
+					$arFields['skype'] = prepareValue($_POST[$blockKey]['skype']);
 					$arFields['org_particip'] = prepareValue($_POST[$blockKey]['org_particip']);
 					$arFields['org_particip_oth'] = prepareValue($_POST[$blockKey]['org_particip_oth']);
 					$arFields['org_particip_ammount'] = prepareValue($_POST[$blockKey]['org_particip_ammount']);
@@ -150,6 +151,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 								$arFields['fax'] = prepareValue($_POST[$blockKey]['fax']);
 								$arFields['telex'] = prepareValue($_POST[$blockKey]['telex']);
 								$arFields['email'] = prepareValue($_POST[$blockKey]['email']);
+								$arFields['skype'] = prepareValue($_POST[$blockKey]['skype']);
 								$arFields['org_particip'] = prepareValue($_POST[$blockKey]['org_particip']);
 								$arFields['org_particip_oth'] = prepareValue($_POST[$blockKey]['org_particip_oth']);
 								$arFields['org_particip_ammount'] = prepareValue($_POST[$blockKey]['org_particip_ammount']);
@@ -352,6 +354,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 							$arFields['fax'] = prepareValue($arItem['fax']);
 							$arFields['telex'] = prepareValue($arItem['telex']);
 							$arFields['email'] = prepareValue($arItem['email']);
+							$arFields['skype'] = prepareValue($arItem['skype']);
 							$arFields['org_particip'] = prepareValue($arItem['org_particip']);
 							$arFields['org_particip_oth'] = prepareValue($arItem['org_particip_oth']);
 							$arFields['org_particip_ammount'] = prepareValue($arItem['org_particip_ammount']);
@@ -394,6 +397,7 @@ if(!empty($_POST) && ( !empty($_POST['APPLICANT']['fullname']) || !empty($_POST[
 								$arFields['fax'] = prepareValue($arItem['fax']);
 								$arFields['telex'] = prepareValue($arItem['telex']);
 								$arFields['email'] = prepareValue($arItem['email']);
+								$arFields['skype'] = prepareValue($arItem['skype']);
 								$arFields['org_particip'] = prepareValue($arItem['org_particip']);
 								$arFields['org_particip_oth'] = prepareValue($arItem['org_particip_oth']);
 								$arFields['org_particip_ammount'] = prepareValue($arItem['org_particip_ammount']);
