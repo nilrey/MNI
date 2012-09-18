@@ -254,21 +254,6 @@ function deleteTr(nmbr, type){
 	}
 }
 
-function deleteTrMNIType(nmbr, type){
-//	$('#table'+type+' > tbody').remove();
-	$('#table'+type+' > tbody tr').each(function(index, value){
-		alert(index+' '+nmbr);
-		if(index+1 == nmbr){
-			$(this).remove();
-		}
-	});
-
-	for( i=1; i< $('#table'+type+' > tbody tr').length; i++){
-		$('#table'+type+' > tbody tr:eq('+i+') td:first').text(i);
-		$('#table'+type+' > tbody tr:eq('+i+') #'+type+'_num').val(i);
-	}
-
-}
 function deleteTrComplete(nmbr, type, id){
 	$.post("http://"+server_host+"/ajax.php", { type: type, elementId: id, action: "deleteCoord" }, function() {}, "json");
 	deleteTr(nmbr, type);
@@ -553,27 +538,21 @@ function checkCoord(parent, child){
 }
 
 function addMNITypeBlock(type){
-	alert(counterMNITypeBlock);
+	composeName = 'MNITYPE['+type+']['+counterMNITypeBlock+']';
+	composeId = type+counterMNITypeBlock;
+
 	var newRow = '<tr id="tr'+counterMNITypeBlock+'">';
 	newRow += '<td>'+counterMNITypeBlock+'</td>';
-	newRow += '<td><input type="hidden" name="MNITYPE['+type+']['+counterMNITypeBlock+'][num]" id="'+type+'_num" value="">';
+	newRow += '<td><input type="hidden" name="'+composeName+'[num]" id="'+type+'_num" value="">';
 	newRow += generateMNIType(type);
 	newRow += '</td>';
-
 	newRow += '<td>';
-	newRow += '<div id="placer'+type+counterMNITypeBlock+'"></div>';
+	newRow += '<div id="placer'+composeId+'"></div>';
 	newRow += '</td>';
-	newRow += '<td>';
-	newRow += generateMNIUnit(type);
-	newRow += '</td>';
-	newRow += '<td>';
-	newRow += '<input type="text" name="MNITYPE['+type+']['+counterMNITypeBlock+'][amount]" id="'+type+counterMNITypeBlock+'_amount">';
-	newRow += '</td>';
-	newRow += '<td>';
-	newRow += '<input type="button" onclick=" if(confirmDelete()){ deleteTrMNIType(\''+counterMNITypeBlock+'\', \''+type+'\'); setValueToUseResult()}" value="Удалить">';
-	newRow += '</td>';
+	newRow += '<td>'+generateMNIUnit(type)+'</td>';
+	newRow += tdInput(composeName+'[amount]', composeId+'_amount', '');
+	newRow += tdButtonDelete(counterMNITypeBlock, type, jsAddonButtonDeleteAndRecount(type));
 	newRow += '</tr>';
-//	alert(newRow);
 	$("#table"+type+" > tbody").append(newRow);
 	for( i=1; i< $('#table'+type+' > tbody tr').length; i++){
 		$('#table'+type+' > tbody tr:eq('+i+') td:first').text(i);
@@ -665,3 +644,345 @@ $(document).ready( function (){
 //	setTextareaDefaultValue('exp_use_result', txtWidth, txtHeight, txtWidth, newHeight);
 	setTextareaResizeNew('exp_use_result', txtWidth, txtHeight, txtWidth, newHeight);
 } );
+
+
+function checkAppForm(){
+	$result = true;
+	tab = 0;
+	id = 'applicant_fullname';
+	if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+	tab = 2;
+	id = 'date_start';
+	if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+	id = 'date_end';
+	if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+	tab = 3;
+	id = 'mni_name';
+	if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+	id = 'mni_aim';
+	if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+	if($("#statusExpedition").val() == 10 || $("#statusExpedition").val() == 12){
+
+		tab = 0;
+		id = 'applicant_country';
+		if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'applicant_city';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'applicant_legaladdress';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'applicant_phone';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'applicant_email';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+		if($('#isExecutor')[0].checked == true){
+			id = 'executant_fullname';
+			if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = 'executant_country';
+			if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = 'executant_legaladdress';
+			if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = 'executant_phone';
+			if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = 'executant_email';
+			if( !checkRequiredField(tab, id ) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+		}
+
+		checkAppDynBlockParticipant();
+
+		tab = 1;
+		checkAppDynBlockTransport();
+
+		tab = 2;
+		id = 'tablemniregion';
+		if( !checkRequiredTable(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'tablemniroot';
+		if( !checkRequiredTable(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+		tab = 3;
+		id = 'tablemnitypes';
+		if( !checkRequiredTable(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'mni_spec';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+		tab = 4;
+		checkAppDynBlockEquipment();
+
+		tab = 5;
+		id = 'exp_ecology';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'exp_particip_rf';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+		id = 'exp_use_result';
+		if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+	}else if ($("#statusExpedition").val() == '13'){
+		 if( ! confirm("Запрос будет заблокирован для дальнейшего редактирования.\nВы действительно хотите отменить данный запрос?") ){
+		 	return false;
+		 }
+	}
+	if($result){
+		document.applicationForm.submit();
+	}
+}
+
+function checkAppDynBlockEquipment(){
+	$('div[id^=blockEquip]').each(
+		function(index, value){
+			tab = 4;
+					id = getDynnamicFieldId(this, 'equip_basic');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'equip_infotype');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'equipowner');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'equipowner_country');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'equipowner_city');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'equipowner_legaladdress');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+
+			}
+		)
+}
+
+
+function checkAppDynBlockParticipant(){
+//	alert($('div[id^=blockParticip]').find('input[id^=ab]').val() );
+
+//	var cnt = $('div[id^=blockParticip]').size() ;
+
+	$('div[id^=blockParticip]').each(
+		function(index, value){
+			tab = 0;
+
+			 curBlockId = $(this).attr("id");
+			 selTypeId = curBlockId.replace('blockParticip', 'rdChooseParticipant');
+			 selTypeVal = $('#'+selTypeId+':checked').val();
+			 if(selTypeVal > 0){
+				 if( selTypeVal == '1'){
+					id = getDynnamicFieldId(this, 'participant_fullname');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_country');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_city');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_legaladdress');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_phone');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_email');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			 	}else if(selTypeVal == '2'){
+					id = getDynnamicFieldId(this, 'participant_fio');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_sitizen');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_workaddress');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+					id = getDynnamicFieldId(this, 'participant_activity');
+					if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			 }
+			}
+		}
+	);
+}
+
+function checkAppDynBlockTransport(){
+
+//	alert($('[id^=selTransport1]').val());
+
+//alert($('div[id^=descTransport]').size());
+	$('div[id^=descTransport]').each(
+		function(index, value){
+			tab = 1;
+
+			 curBlockId = $(this).attr("id");
+			 selTypeId = curBlockId.replace('descTransport', 'selTransport');
+			 selTypeVal = $('#'+selTypeId).val();
+			 if(selTypeVal != 0){
+			 if( selTypeVal == 'ship'){
+
+				id = getDynnamicFieldId(this, 'shipname__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'nation__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner_country__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner_city__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner_legaladdress__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner_phone__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'shipowner_email__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'homeport__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'func__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'length__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'width__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'draught__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'seaworth__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'displace__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'generator__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'rdfreq__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+				id = getDynnamicFieldId(this, 'rdsign__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			 }else if(selTypeVal == 'other'){
+				id = getDynnamicFieldId(this, 'transport_name__');
+				if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			 }
+			id = getDynnamicFieldId(this, 'capt__');
+			if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = getDynnamicFieldId(this, 'crew__');
+			if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = getDynnamicFieldId(this, 'researchers__');
+			if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			id = getDynnamicFieldId(this, 'head__');
+			if( !checkRequiredField(tab, id) && $result ){ $result = false; selectRequiredField(tab, id); }
+			 }
+		}
+	);
+}
+
+function getDynnamicFieldId(parent, id){
+	return $(parent).find('[id^='+id+']').attr("id");
+}
+
+function selectRequiredField(tab, id){
+	prefix = 'req_';
+	setCurrentTab(tab)
+//	alert(id);
+	markRequiredField(prefix+id);
+	$('#requiredFieldsErrorMessage').fadeIn(150) ;
+	$(document).scrollTo( $("#req_"+id), 700);
+}
+
+function checkRequiredField(tab, id){
+	unmarkRequiredField('req_'+id);
+	if ( $.trim($('#'+id).val()).length == 0 ){
+		return false;
+	}
+	return true;
+}
+
+function checkIfRequiredField(tab, id){
+	unmarkRequiredField('req_'+id);
+	if ( $(":radio[name=rd_"+id+"]" ).filter(":checked").val() == 2 ) {
+		if( !checkRequiredField(tab, id) ){
+			return false;
+		}
+	}else{
+		$('#'+id).val('');
+	}
+	return true;
+}
+
+function checkRequiredTable(tab, id){
+	unmarkRequiredField('req_'+id);
+	if ( $('#'+id+'  tr').length == 1 ){
+		return false;
+	}
+	return true;
+}
+
+function markRequiredField(name){
+	$('#'+name).addClass('reqFieldError');
+}
+function unmarkRequiredField(name){
+	$('#'+name).removeClass('reqFieldError');
+}
+
+function checkIsExecutor(name, block){
+	if($('#'+name)[0].checked ==true){
+		$('#'+name)[0].checked = false;
+	}else{
+		$('#'+name)[0].checked = true;
+	}
+	showExecutorBlock(name, block);
+}
+
+function showExecutorBlock(name, block){
+	element = $('#'+name)[0];
+	if(element.checked){
+		$('#'+block).fadeIn(150) ;
+		showAddToButton( block, element.checked );
+	}else{
+		$('#'+block).fadeOut(150) ;
+		showAddToButton( block, element.checked );
+	}
+}
+
+function showAddToButton(block, show){
+	if ($("#addTo_"+block).length > 0){
+		if(show){
+			$("#addTo_"+block).fadeIn(150) ;
+		}else{
+			$("#addTo_"+block).fadeOut(150) ;
+		}
+	}
+}
+
+function showMessage(message){
+	setTimeout('alert("'+message+'")', 700);
+}
+
+
+$(document).ready( function() {
+	$('#date_start').datepick({ onSelect: customRange, maxDate: EXPEDITION_DATE_END, minDate: EXPEDITION_DATE_MIN, showTrigger: '#calImg'});
+	$('#date_end').datepick({ onSelect: customRange, minDate: EXPEDITION_DATE_START, maxDate: EXPEDITION_DATE_MAX, showTrigger: '#calImg'});
+});
+
+function customRange(dates) {
+    if (this.id == 'date_start') {
+        $('#date_end').datepick('option', 'minDate', dates[0] || null);
+    }
+    else {
+        $('#date_start').datepick('option', 'maxDate', dates[0] || null);
+    }
+}
+
+function gotoEndDate(){
+	endDate = '#req_date_end';
+	setCurrentTab(2);
+	$(endDate).addClass('reqFieldHighlight');
+	$(document).scrollTo( $(endDate), 700);
+}
+
+function confirmDelete(){
+	 if( confirm('Удалить строку?') ){
+	 	return true;
+	 }
+	 return false;
+}
+function confirmDeleteRecord(){
+	 if( confirm('Удалить запись?') ){
+	 	return true;
+	 }
+	 return false;
+}
+
+$(function(){
+	//hover states on the static widgets
+	$('#dialog_link, ul#icons li').hover(
+		function() { $(this).addClass('ui-state-hover'); },
+		function() { $(this).removeClass('ui-state-hover'); }
+	);
+
+});

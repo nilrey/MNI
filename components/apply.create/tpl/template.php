@@ -11,31 +11,29 @@ if(isset($_REQUEST['act'])){
 	}
 }
 ?>
-<? if(!empty($arResult['REPORT_FILE']['NAME'])){
-		if(is_file($_SERVER['DOCUMENT_ROOT'].$arResult['REPORT_FILE']['PATH'])){
-?>
-
-<div class="modal hide" id="myModal">
-  <div class="modal-header">
-    <h3>Сохранить заявку</h3>
-  </div>
-  <div class="modal-body">
-  	<p>Файл заявки сохранен в формате DOCX и упакован в архив ZIP</p>
-    <p><a href="<?=$arResult['REPORT_FILE']['PATH']?>"><b>Скачать файл в архиве</b></a> </p>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Закрыть</a>
-  </div>
-</div>
-<script>$('#myModal').modal("show");</script>
-<?
-		}
-	}
-?>
-
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=TEMPLATE_PATH?>js/apply_functions.js" TYPE="text/javascript"></SCRIPT>
-<?include_once('js.functions.php');?>
-<?include_once('js.equip.php');?>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=TEMPLATE_PATH?>js/html.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=TEMPLATE_PATH?>js/func.getCountries.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=TEMPLATE_PATH?>js/equip.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=TEMPLATE_PATH?>js/func.MNIType.js" TYPE="text/javascript"></SCRIPT>
+<script>
+var counterShipBlock = <?=(count($arResult['TRANSPORT'])+2)?>;
+var counterParticipBlock = <?=count($arResult['PARTICIPANT'])?>;
+var counterShipRootBlock = <?=count($arResult['COORDS']['shiproot'])+1?>;
+var counterPortsBlock = <?=count($arResult['PORTS']['ports'])+1?>;
+var counterMNITypeBlock = <?=count($arResult['MNITYPE'])+1?>;
+var counterEquipBlock = <?=count($arResult['EQUIP'])?>;
+var counterEquipCoords = <?=count($arResult['COORDS']['equip'])?>;
+var server_host = '<?=$_SERVER["HTTP_HOST"]?>';
+var cMaxDate = '<?=$arResult['EXPEDITION']['date_end']?>';
+var cMinDate = '<?=$arResult['EXPEDITION']['date_start']?>';
+var EXPEDITION_DATE_START = '<?=$arResult['EXPEDITION']['date_start']?>';
+var EXPEDITION_DATE_END = '<?=$arResult['EXPEDITION']['date_end']?>';
+var EXPEDITION_DATE_MIN = '<?=(date("Y")+1)?>-01-01';
+var EXPEDITION_DATE_MAX = '<?=(date("Y")+1)?>-12-31';
+</script>
+
+<? //include_once('js.generators.php'); // !IMPORTANT DO NOT DELETE! ?>
 
 <p id="requiredFieldsErrorMessage" style="padding: 10px 0px; color: Red; font-size: 14px; font-weight: bold; display:none">Пожалуйста, заполните обязательные поля </p>
 <br>
