@@ -31,6 +31,27 @@ function getCountriesSelect(name, id, selValue, cssClass){
 
 }
 
+function tdDepartments(name, id, selValue, cssClass){
+	output = '<td>';
+	output += getDepartmentsSelect(name, id, selValue, cssClass);
+	output += '</td>';
+	return output;
+}
+
+function getDepartmentsSelect(name, id, selValue, cssClass){
+	output = '<select name="'+name+'" id="'+id+'" class="'+cssClass+'">';
+	output += '<option value="">';
+	var departments = getDepartments();
+	if( !$.isNumeric(selValue)) selValue = 0;
+	for(i in departments ){
+		selected = '';
+		if(i == selValue)	selected = ' selected ';
+		output += '<option value="'+i+'" '+selected+'>'+departments[i];
+	}
+	return output;
+
+}
+
 function tdCalendar(name, id){
 	return '<td><input type="text" name="'+name+'" id="'+id+'" value="" size="7"></td>';
 }

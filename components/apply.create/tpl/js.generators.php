@@ -1,4 +1,4 @@
-<? /*
+<?/*
 <script>
 
 // --------------------------------------------------- JS CODE GENERATORS ---------------------------------------------------------------------
@@ -239,7 +239,20 @@ echo "countries[{$arCountry['id']}] = \"{$arCountry['name']}\";\n";
 ?>
 	return countries;
 }
+
+function getDepartments(){
+	var departments = new Array();
+<?
+if(!empty($arResult['REFBOOK']['departments']) && count($arResult['REFBOOK']['departments']) > 0 ){
+	foreach ($arResult['REFBOOK']['departments'] as $arDepartment) {
+		echo "departments[{$arDepartment['id']}] = \"{$arDepartment['name']}\";\n";
+	}
+}
+?>
+	return countries;
+}
+
 // --------------------------------------------------- \ JS CODE GENERATORS ---------------------------------------------------------------------
 </script>
 
-*/ ?>
+*/?>

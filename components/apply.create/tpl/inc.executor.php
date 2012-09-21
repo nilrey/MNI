@@ -17,24 +17,13 @@
 					</td>
 				</tr>
 				<tr class="trHighLighted">
-					<td>Принадлежность ведомству:</td><td>
-					<select class="input_text"  name="EXECUTOR[department]" id="executant_department">
-						<option value="">
-						<? foreach ($arResult['REFBOOK']['departments'] as $item) { ?>
-							<option value="<?=$item['id']?>" <?=( ($arResult['EXECUTOR']['department'] == $item['id']) ? 'selected' : '')?>><?=$item['name']?>
-						<? }?>
-					</select>
+					<td>Принадлежность ведомству:</td>
+					<td id="placer_executant_department">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
-					<td><?=requiredTitle('Государство', 'executant_country')?>:</td><td id="placer_executant_country">
-<? /*					<select class="input_text"  name="EXECUTOR[country]" id="executant_country">
-						<option value="">
-						<? foreach ($arResult['REFBOOK']['countries'] as $item) { ?>
-							<option value="<?=$item['id']?>" <?=( ($arResult['EXECUTOR']['country'] == $item['id']) ? 'selected' : '')?>><?=$item['name']?>
-						<? }?>
-					</select>
-*/?>
+					<td><?=requiredTitle('Государство', 'executant_country')?>:</td>
+					<td id="placer_executant_country">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
@@ -82,13 +71,7 @@
 					</td>
 				</tr>
 				<tr class="trHighLighted">
-					<td>Гражданство:</td><td>
-					<select class="input_text"  name="EXECUTOR[sitizen]" id="executant_sitizen">
-						<option value="">
-						<? foreach ($arResult['REFBOOK']['countries'] as $item) { ?>
-							<option value="<?=$item['id']?>" <?=( ($arResult['EXECUTOR']['country'] == $item['id']) ? 'selected' : '')?>><?=$item['name']?>
-						<? }?>
-					</select>
+					<td>Гражданство:</td><td id="placer_executant_sitizen">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
@@ -102,4 +85,6 @@
 			</div> <!-- \ border2px -->
 			<script>$(document).ready( function(){
 					$('#placer_executant_country').append(getCountriesSelect('EXECUTOR[country]', 'executant_country', '<?=$arResult['EXECUTOR']['country']?>', '') );
+					$('#placer_executant_sitizen').append(getCountriesSelect('EXECUTOR[sitizen]', 'executant_sitizen', '<?=$arResult['EXECUTOR']['country']?>', '') );
+					$('#placer_executant_department').append(getDepartmentsSelect('EXECUTOR[department]', 'executant_department', '<?=$arResult['EXECUTOR']['department']?>', '') );
 				});</script>

@@ -178,8 +178,8 @@ array(
 	'level'=> '3',
 	'use_params_to_select'=> 'N',
 	'granted_groups' => array(1),
-
 	),
+
 	array(
 	'name'=> 'Добавить пользователя',
 	'url'=> array('/settings/users/edituser.php'),
@@ -187,22 +187,23 @@ array(
 	'use_params_to_select'=> 'N',
 	'granted_groups' => array(1),
 	),
+
 	array(
 	'name'=> 'Справочники',
 	'url'=> array('/settings/refbooks/'),
 	'level'=> '2',
 	'use_params_to_select'=> 'N',
 	'granted_groups' => array(1),
-
 	),
+
 	array(
 	'name'=> 'Ведомства',
 	'url'=> array('/settings/refbooks/departments.php'),
 	'level'=> '3',
 	'use_params_to_select'=> 'N',
 	'granted_groups' => array(1),
-
 	),
+
 	array(
 	'name'=> 'Организации',
 	'url'=> array('/settings/refbooks/organizations.php'),
@@ -211,6 +212,15 @@ array(
 	'granted_groups' => array(1),
 
 	),
+
+	array(
+	'name'=> 'Организации и депортаменты',
+	'url'=> array('/settings/refbooks/organizations_dept.php'),
+	'level'=> '3',
+	'use_params_to_select'=> 'N',
+	'granted_groups' => array(1),
+	),
+
 	array(
 	'name'=> 'Порты',
 	'url'=> array('/settings/refbooks/ports.php'),

@@ -5,70 +5,54 @@
 
 			switch ($arResult['MAINTRANSPORT']['type']){
 				case 'ship':
+					$fields = '';
+					$counter = 1;
+					$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'shipname__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipname]" id="shipname__'.$counter.'" size=100 value="'.prepareString($arResult['MAINTRANSPORT']['name']).'"></td></tr>';
+					$fields .= '<tr class="trHighLighted">
+							<td>'.requiredTitle('Национальность', 'nation__'.$counter).':</td>
+							<td id="placer_mtrans_nation'.$counter.'">
+							</td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Судовладелец', 'shipowner__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner]" id="shipowner__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner'].'" size="80"></td></tr>';
 
-			$fields = '';
-			$countriesList = '';
-			foreach ($arResult['REFBOOK']['countries'] as $country){
-				$selected = '';
-				if($country['id'] == $arResult['MAINTRANSPORT']['nation']) $selected = ' selected ';
-				$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-			}
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Государство', 'shipowner_country__'.$counter).':</td>
+							<td id="placer_mtrans_shipowner'.$counter.'_country">
+							</td>
+							</tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Город', 'shipowner_city__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_city]" id="shipowner_city__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_city'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Юридический адрес', 'shipowner_legaladdress__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_legaladdress]" id="shipowner_legaladdress__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_legaladdress'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Телефон', 'shipowner_phone__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_phone]" id="shipowner_phone__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_phone'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\' size="70">Телефакс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_fax]" id="shipowner_fax__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_fax'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\' size="70">Телекс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_telex]" id="shipowner_telex__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_telex'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('E-mail', 'shipowner_email__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_email]" id="shipowner_email__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_email'].'" size="70"></td></tr>';
 
-			$counter = 1;
-			$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'shipname__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipname]" id="shipname__'.$counter.'" size=100 value="'.prepareString($arResult['MAINTRANSPORT']['name']).'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Национальность', 'nation__'.$counter).':</td><td><select class="input_text"  name="TRANSPORT['.$counter.'][nation]" id="nation__'.$counter.'"><option value="">'.$countriesList.'</select></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Судовладелец', 'shipowner__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner]" id="shipowner__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner'].'" size="80"></td></tr>';
-
-			$countriesList = '';
-			foreach ($arResult['REFBOOK']['countries'] as $country){
-				$selected = '';
-				if($country['id'] == $arResult['MAINTRANSPORT']['shipowner_country']) $selected = ' selected ';
-				$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-			}
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Государство', 'shipowner_country__'.$counter).':</td><td>
-			<select class="input_text"  name="TRANSPORT['.$counter.'][shipowner_country]" id="shipowner_country__'.$counter.'"><option value="">'.$countriesList.'</select></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Город', 'shipowner_city__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_city]" id="shipowner_city__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_city'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Юридический адрес', 'shipowner_legaladdress__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_legaladdress]" id="shipowner_legaladdress__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_legaladdress'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Телефон', 'shipowner_phone__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_phone]" id="shipowner_phone__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_phone'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\' size="70">Телефакс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_fax]" id="shipowner_fax__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_fax'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\' size="70">Телекс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_telex]" id="shipowner_telex__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_telex'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('E-mail', 'shipowner_email__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_email]" id="shipowner_email__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['shipowner_email'].'" size="70"></td></tr>';
-
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Порт приписки', 'homeport__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][homeport]" id="homeport__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['homeport'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Назначение', 'func__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][func]" id="func__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['func'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая длина', 'length__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][length]" id="length__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['length'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая ширина', 'width__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][width]" id="width__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['width'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая осадка', 'draught__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][draught]" id="draught__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['draught'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Мореходность', 'seaworth__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][seaworth]" id="seaworth__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['seaworth'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Полное водоизмещение (в тоннах)', 'displace__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][displace]" id="displace__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['displace'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Тип и мощность главной энергетической установки', 'generator__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][generator]" id="generator__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['generator'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиочастоты', 'rdfreq__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdfreq]" id="rdfreq__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['rdfreq'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиопозывные', 'rdsign__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdsign]" id="rdsign__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['rdsign'].'" size="70"></td></tr>';
-			$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['capt'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['crew'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['researchers'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['head'].'" size="70"></td></tr>';
-					break;
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Порт приписки', 'homeport__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][homeport]" id="homeport__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['homeport'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Назначение', 'func__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][func]" id="func__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['func'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая длина', 'length__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][length]" id="length__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['length'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая ширина', 'width__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][width]" id="width__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['width'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая осадка', 'draught__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][draught]" id="draught__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['draught'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Мореходность', 'seaworth__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][seaworth]" id="seaworth__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['seaworth'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Полное водоизмещение (в тоннах)', 'displace__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][displace]" id="displace__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['displace'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Тип и мощность главной энергетической установки', 'generator__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][generator]" id="generator__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['generator'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиочастоты', 'rdfreq__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdfreq]" id="rdfreq__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['rdfreq'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиопозывные', 'rdsign__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdsign]" id="rdsign__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['rdsign'].'" size="70"></td></tr>';
+					$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['capt'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['crew'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['researchers'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['head'].'" size="70"></td></tr>';
+				break;
 
 				case 'other':
-			$fields = '';
-			$countriesList = '';
-			foreach ($arResult['REFBOOK']['countries'] as $country){
-				$selected = '';
-				if($country['id'] == $arResult['MAINTRANSPORT']['nation']) $selected = ' selected ';
-				$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-			}
+					$fields = '';
+					$counter = 1;
+					$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'transport_name__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][transport_name]" id="transport_name__'.$counter.'" size=100 value="'.$arResult['MAINTRANSPORT']['name'].'"></td></tr>';
+					$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['capt'].'" size="70"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['crew'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['researchers'].'"></td></tr>';
+					$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['head'].'" size="70"></td></tr>';
 
-			$counter = 1;
-			$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'transport_name__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][transport_name]" id="transport_name__'.$counter.'" size=100 value="'.$arResult['MAINTRANSPORT']['name'].'"></td></tr>';
-			$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['capt'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['crew'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['researchers'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arResult['MAINTRANSPORT']['head'].'" size="70"></td></tr>';
-
-					break;
+				break;
 			}
 
 	$fields = '<div id="placerTransport1">Тип транспорта: <select name="TRANSPORT[1][type]" id="selTransport1" onchange="getTransportType(this, 1, \'transp1\')"><option value=0 /><option value="ship" '.($arResult['MAINTRANSPORT']['type'] == 'ship' ? ' selected ' : '').'>Судно<option value="other" '.($arResult['MAINTRANSPORT']['type'] == 'other' ? ' selected ' : '').'>Другое ТС</select></div>
@@ -77,7 +61,13 @@
 	<input type="hidden" name="TRANSPORT['.$counter.'][main_trs]" value="1">
 	<div id="transp1">
 	<div id="descTransport1">
-	<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="tab" STYLE="border: 1px solid #cdcdcd">'.$fields.'</table>
+	<table CELLSPACING="0" CELLPADDING="0" CLASS="tab" STYLE="border: 1px solid #cdcdcd">'.$fields.'
+			<script>$(document).ready( function(){
+					$(\'#placer_mtrans_shipowner'.$counter.'_country\').append(getCountriesSelect(\'TRANSPORT['.$counter.'][shipowner_country]\', \'shipowner_country__'.$counter.'\', \''.$arResult['MAINTRANSPORT']['shipowner_country'].'\', \'\') );
+					$(\'#placer_mtrans_nation'.$counter.'\').append(getCountriesSelect(\'TRANSPORT['.$counter.'][nation]\', \'nation__'.$counter.'\', \''.$arResult['MAINTRANSPORT']['nation'].'\', \'\') );
+				});
+			</script>
+	</table>
 	</div>
 	</div>
 	';
@@ -166,56 +156,47 @@
 					case 'ship':
 //						var_dump($arItem);
 						$fields = '';
-			$countriesList = '';
-			foreach ($arResult['REFBOOK']['countries'] as $country){
-				$selected = '';
-				if($country['id'] == $arItem['nation']) $selected = ' selected ';
-				$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-			}
 
-			$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'shipname__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipname]" id="shipname__'.$counter.'" size=100 value="'.$arItem['name'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Национальность', 'nation__'.$counter).':</td><td><select class=\"input_text\"  name="TRANSPORT['.$counter.'][nation]" id="nation__'.$counter.'"><option value=\"\">'.$countriesList.'</select></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Судовладелец', 'shipowner__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner]" id="shipowner__'.$counter.'" value="'.$arItem['shipowner'].'" size="80"></td></tr>';
+						$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'shipname__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipname]" id="shipname__'.$counter.'" size=100 value="'.$arItem['name'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Национальность', 'nation__'.$counter).':</td>
+													<td id="placer_trans_nation'.$counter.'">
+													</td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Судовладелец', 'shipowner__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner]" id="shipowner__'.$counter.'" value="'.$arItem['shipowner'].'" size="80"></td></tr>';
 
-			$countriesList = '';
-			foreach ($arResult['REFBOOK']['countries'] as $country){
-				$selected = '';
-				if($country['id'] == $arItem['shipowner_country']) $selected = ' selected ';
-				$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-			}
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Государство', 'shipowner_country__'.$counter).':</td><td>
-			<select class=\"input_text\"  name="TRANSPORT['.$counter.'][shipowner_country]" id="shipowner_country__'.$counter.'"><option value=\"\">'.$countriesList.'</select></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Город', 'shipowner_city__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_city]" id="shipowner_city__'.$counter.'" value="'.$arItem['shipowner_city'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Юридический адрес', 'shipowner_legaladdress__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_legaladdress]" id="shipowner_legaladdress__'.$counter.'" value="'.$arItem['shipowner_legaladdress'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Телефон', 'shipowner_phone__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_phone]" id="shipowner_phone__'.$counter.'" value="'.$arItem['shipowner_phone'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>Телефакс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_fax]" id="shipowner_fax__'.$counter.'" value="'.$arItem['shipowner_fax'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>Телекс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_telex]" id="shipowner_telex__'.$counter.'" value="'.$arItem['shipowner_telex'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('E-mail', 'shipowner_email__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_email]" id="shipowner_email__'.$counter.'" value="'.$arItem['shipowner_email'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Государство', 'shipowner_country__'.$counter).':</td>
+						<td id="placer_trans_shipowner'.$counter.'_country">
+						</td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Город', 'shipowner_city__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_city]" id="shipowner_city__'.$counter.'" value="'.$arItem['shipowner_city'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Юридический адрес', 'shipowner_legaladdress__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_legaladdress]" id="shipowner_legaladdress__'.$counter.'" value="'.$arItem['shipowner_legaladdress'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('Телефон', 'shipowner_phone__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_phone]" id="shipowner_phone__'.$counter.'" value="'.$arItem['shipowner_phone'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>Телефакс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_fax]" id="shipowner_fax__'.$counter.'" value="'.$arItem['shipowner_fax'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>Телекс:</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_telex]" id="shipowner_telex__'.$counter.'" value="'.$arItem['shipowner_telex'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td class=\'shiftLeft20\'>'.requiredTitle('E-mail', 'shipowner_email__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][shipowner_email]" id="shipowner_email__'.$counter.'" value="'.$arItem['shipowner_email'].'"></td></tr>';
 
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Порт приписки', 'homeport__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][homeport]" id="homeport__'.$counter.'" value="'.$arItem['homeport'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Назначение', 'func__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][func]" id="func__'.$counter.'" value="'.$arItem['func'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая длина', 'length__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][length]" id="length__'.$counter.'" value="'.$arItem['length'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая ширина', 'width__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][width]" id="width__'.$counter.'" value="'.$arItem['width'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая осадка', 'draught__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][draught]" id="draught__'.$counter.'" value="'.$arItem['draught'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Мореходность', 'seaworth__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][seaworth]" id="seaworth__'.$counter.'" value="'.$arItem['seaworth'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Полное водоизмещение', 'displace__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][displace]" id="displace__'.$counter.'" value="'.$arItem['displace'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Тип и мощность главной энергетической установки', 'generator__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][generator]" id="generator__'.$counter.'" value="'.$arItem['generator'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиочастоты', 'rdfreq__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdfreq]" id="rdfreq__'.$counter.'" value="'.$arItem['rdfreq'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиопозывные', 'rdsign__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdsign]" id="rdsign__'.$counter.'" value="'.$arItem['rdsign'].'" size="70"></td></tr>';
-			$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arItem['capt'].'" size="70"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arItem['crew'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arItem['researchers'].'"></td></tr>';
-			$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arItem['head'].'" size="70"></td></tr>';
-
-					break;
-					case 'other':
-						$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'transport_name__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][transport_name]" id="transport_name__'.$counter.'" size=100 value="'.prepareString($arItem['name']).'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Порт приписки', 'homeport__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][homeport]" id="homeport__'.$counter.'" value="'.$arItem['homeport'].'" size="70"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Назначение', 'func__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][func]" id="func__'.$counter.'" value="'.$arItem['func'].'" size="70"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая длина', 'length__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][length]" id="length__'.$counter.'" value="'.$arItem['length'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая ширина', 'width__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][width]" id="width__'.$counter.'" value="'.$arItem['width'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Наибольшая осадка', 'draught__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][draught]" id="draught__'.$counter.'" value="'.$arItem['draught'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Мореходность', 'seaworth__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][seaworth]" id="seaworth__'.$counter.'" value="'.$arItem['seaworth'].'" size="70"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Полное водоизмещение', 'displace__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][displace]" id="displace__'.$counter.'" value="'.$arItem['displace'].'"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Тип и мощность главной энергетической установки', 'generator__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][generator]" id="generator__'.$counter.'" value="'.$arItem['generator'].'" size="70"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиочастоты', 'rdfreq__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdfreq]" id="rdfreq__'.$counter.'" value="'.$arItem['rdfreq'].'" size="70"></td></tr>';
+						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Радиопозывные', 'rdsign__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][rdsign]" id="rdsign__'.$counter.'" value="'.$arItem['rdsign'].'" size="70"></td></tr>';
 						$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
 						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arItem['capt'].'" size="70"></td></tr>';
 						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arItem['crew'].'"></td></tr>';
 						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arItem['researchers'].'"></td></tr>';
 						$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arItem['head'].'" size="70"></td></tr>';
+
+					break;
+					case 'other':
+							$fields = '<tr class="trHighLighted"><td>'.requiredTitle('Название', 'transport_name__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][transport_name]" id="transport_name__'.$counter.'" size=100 value="'.prepareString($arItem['name']).'"></td></tr>';
+							$fields .= '<tr><td  CLASS="head">Экипаж:</td><td  CLASS="head">&nbsp;</td></tr>';
+							$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Капитан', 'capt__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][capt]" id="capt__'.$counter.'" value="'.$arItem['capt'].'" size="70"></td></tr>';
+							$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Команда', 'crew__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][crew]" id="crew__'.$counter.'" value="'.$arItem['crew'].'"></td></tr>';
+							$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Экспедиционный состав', 'researchers__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][researchers]" id="researchers__'.$counter.'" value="'.$arItem['researchers'].'"></td></tr>';
+							$fields .= '<tr class="trHighLighted"><td>'.requiredTitle('Руководитель морских научных исследований', 'head__'.$counter).':</td><td><input type="text" name="TRANSPORT['.$counter.'][head]" id="head__'.$counter.'" value="'.$arItem['head'].'" size="70"></td></tr>';
 
 					break;
 
@@ -236,7 +217,14 @@
 				<input type="hidden" name="TRANSPORT['.$counter.'][eid]" value="'.$arItem['id'].'">
 				<input type="hidden" name="TRANSPORT['.$counter.'][curType]" value="'.$arItem['type'].'">
 				<input type="hidden" name="TRANSPORT['.$counter.'][main_trs]" value="0">
-	<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="tab" STYLE="border: 1px solid #cdcdcd">'.$fields.'</table>
+	<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="tab" STYLE="border: 1px solid #cdcdcd">'.$fields.'
+			<script>$(document).ready( function(){
+					$(\'#placer_trans_shipowner'.$counter.'_country\').append(getCountriesSelect(\'TRANSPORT['.$counter.'][shipowner_country]\', \'shipowner_country__'.$counter.'\', \''.$arItem['shipowner_country'].'\', \'\') );
+					$(\'#placer_trans_nation'.$counter.'\').append(getCountriesSelect(\'TRANSPORT['.$counter.'][nation]\', \'nation__'.$counter.'\', \''.$arItem['nation'].'\', \'\') );
+				});
+			</script>
+
+	</table>
 <script>
 
 	$(document).ready(function(){

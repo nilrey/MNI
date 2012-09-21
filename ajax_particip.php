@@ -146,7 +146,7 @@ if(!empty($_REQUEST['action'])){
 	}elseif ($_REQUEST['action'] == 'getParticipName'  ){
 		if(empty($_REQUEST['counter'])) $_REQUEST['counter'] = 0;
 		$src = htmlspecialchars($_REQUEST['q']);
-		$query = "SELECT * FROM  mon_rb_organizations WHERE name like '%{$src}%' OR name_eng like '%{$src}%'  OR short_name like '%{$src}%'  OR short_name_eng like '%{$src}%' ";
+		$query = "SELECT * FROM  mon_rb_organizations WHERE name like '%{$src}%' OR name_eng like '%{$src}%'  OR short_name like '%{$src}%'  OR short_name_eng like '%{$src}%' limit 0, 10";
 		$resource = $DB->getRecordsAssoc($query);
 		foreach ($resource as $arr){
 			//echo $arr['name'].'<br>';

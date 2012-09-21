@@ -197,6 +197,18 @@ function newRootBlock(){
 }
 
 // PARTICIPANT
+
+function getParticipBlock(){
+	var output = '';
+	var counter = ++counterParticipBlock;
+	output += '<div class="border2px">';
+	output += '<div id="participantOfficial'+counter+'">';
+	output += '</div>';
+	output += '</div>';
+	$('#areaParticipant').append('<div id="blockParticip'+counterParticipBlock+'"></div>'); // добавим область записи
+	$('#blockParticip'+counterParticipBlock).append( output );
+}
+
 function newParticipBlock(){
 //	var elements = $('div[id^=blockParticip]');
 //	elements.length;

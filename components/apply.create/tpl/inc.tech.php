@@ -206,10 +206,7 @@ foreach ($arResult['REFBOOK']['countries'] as $country) {
 				</tr>
 				<tr class="trHighLighted">
 					<td width="30%">Страна:</td>
-					<td>
-					<select class="input_text"  name="EQUIP[{$counter}][equipowner_country]" id="equipowner_country{$counter}">
-						<option value="">{$strOutputCountries}
-					</select>
+					<td id="placer_equipowner{$counter}_country">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
@@ -254,6 +251,9 @@ TEXT;
 	setTextareaResizeNew('equip_infotype{$counter}', txtWidth, txtHeight, txtWidth, newHeight);
 	setTextareaResizeNew('equipowner{$counter}', txtWidth, txtHeight, txtWidth, newHeight);
 	setTextareaResizeNew('equipowner_legaladdress{$counter}', txtWidth, txtHeight, txtWidth, newHeight);
+	$(document).ready( function(){
+		$('#placer_equipowner{$counter}_country').append(getCountriesSelect('EQUIP[{$counter}][equipowner_country]', 'equipowner_country{$counter}', '{$arItem['equipowner_country']}', '') );
+	});
 ";
 
 			}

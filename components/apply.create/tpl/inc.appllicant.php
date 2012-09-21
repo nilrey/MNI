@@ -8,17 +8,13 @@
 					</td>
 				</tr>
 				<tr class="trHighLighted">
-					<td>Принадлежность ведомству:</td><td>
-					<select class="input_text"  name="APPLICANT[department]" id="applicant_department">
-						<option value="">
-						<? foreach ($arResult['REFBOOK']['departments'] as $item) { ?>
-							<option value="<?=$item['id']?>" <?=( ($arResult['APPLICANT']['department'] == $item['id']) ? 'selected' : '')?>><?=$item['name']?>
-						<? }?>
-					</select>
+					<td>Принадлежность ведомству:</td>
+					<td id="placer_applicant_department">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
-					<td><?=requiredTitle('Государство', 'applicant_country')?>:</td><td id="placer_applicant_country">
+					<td><?=requiredTitle('Государство', 'applicant_country')?>:</td>
+					<td id="placer_applicant_country">
 					</td>
 				</tr>
 				<tr class="trHighLighted">
@@ -61,4 +57,5 @@
 			</div>
 			<script>$(document).ready( function(){
 					$('#placer_applicant_country').append(getCountriesSelect('APPLICANT[country]', 'applicant_country', <?=$arResult['APPLICANT']['country']?>, '') );
+					$('#placer_applicant_department').append(getDepartmentsSelect('APPLICANT[department]', 'applicant_department', '<?=$arResult['APPLICANT']['department']?>', '') );
 				});</script>

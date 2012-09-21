@@ -1,17 +1,6 @@
 		<p class="subtitle">3. Участники морских научных исследований, не являющиеся заявителем либо юридическим лицом (гражданином), уполномоченным на проведение исследований:</p>
 		<?if( count($arResult['PARTICIPANT']) > 0 ){
 			foreach ($arResult['PARTICIPANT'] as $counter=>$arItem){
-				$countriesList = '';
-				foreach ($arResult['REFBOOK']['countries'] as $country){
-					$selected = '';
-					if($country['id'] == $arItem['country']) $selected = ' selected ';
-					$countriesList .= "<option value='{$country['id']}' {$selected}>{$country['name']}";
-				}
-				foreach ($arResult['REFBOOK']['departments'] as $item) {
-					$selected = '';
-					if( $arItem['department'] == $item['id'] )	$selected = ' selected ';
-					$strDepartments .= "<option value='{$item['id']}' {$selected}>{$item['name']}";
-				}
 				switch ($arItem['type']) {
 					case 1:
 $fields = "
@@ -28,18 +17,13 @@ $fields = "
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>Принадлежность ведомству:</td><td>
-					<select class=\"input_text\"  name=\"PARTICIPANT[{$counter}][department]\" id=\"participant_department{$counter}\">
-						<option value=\"\">{$strDepartments}
-					</select>
+					<td>Принадлежность ведомству:</td>
+					<td id='placer_participant{$counter}_department'>
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>".requiredTitle('Государство', 'participant_country'.$counter).":</td><td>
-					<select class=\"input_text\"  name=\"PARTICIPANT[{$counter}][country]\" id=\"participant_country{$counter}\">
-						<option value=\"\">
-						{$countriesList}
-					</select>
+					<td>".requiredTitle('Государство', 'participant_country'.$counter).":</td>
+					<td id='placer_participant{$counter}_country'>
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
@@ -75,8 +59,11 @@ $fields = "
 				<tr class='trHighLighted'>
 					<td>Форма участия представителей:</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT[{$counter}][org_particip_type]\" id=\"participant_org_particip_type{$counter}\" value=\"{$arItem['org_particip_type']}\" size='70'></td>
 				</tr>
-
 			</table>
+			<script>$(document).ready( function(){
+					$('#placer_participant{$counter}_country').append(getCountriesSelect('PARTICIPANT[{$counter}][country]', 'participant_country{$counter}', '".$arItem['country']."', '') );
+					$('#placer_participant{$counter}_department').append(getDepartmentsSelect('PARTICIPANT[{$counter}][department]', 'participant_department{$counter}', '".$arItem['department']."', '') );
+				});</script>
 			<input type=\"button\" id=\"delParticip{$counter}\" onclick=\" if(confirmDeleteRecord()) deleteParticipBlockComplete({$counter}, {$arItem['id']}, {$arItem['type']})\" value=\"Удалить участника\">
 			</div> <!-- \ border2px -->
 			</div> <!-- \ participantPerson -->
@@ -119,11 +106,8 @@ $fields = "
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
-					<td>".requiredTitle('Гражданство', 'participant_sitizen'.$counter).":</td><td>
-					<select class=\"input_text\"  name=\"PARTICIPANT[{$counter}][sitizen]\" id=\"participant_sitizen{$counter}\">
-						<option value=\"\">
-						{$countriesList}
-					</select>
+					<td>".requiredTitle('Гражданство', 'participant_sitizen'.$counter).":</td>
+					<td id='placer_participant{$counter}_sitizen'>
 					</td>
 				</tr>
 				<tr class='trHighLighted'>
@@ -133,6 +117,9 @@ $fields = "
 					<td>".requiredTitle('Форма участия', 'participant_particip'.$counter).":</td><td><input type=\"text\" class=\"input_text\" name=\"PARTICIPANT[{$counter}][particip]\" id=\"participant_particip{$counter}\" value=\"{$arItem['particip']}\"></td>
 				</tr>
 			</table>
+			<script>$(document).ready( function(){
+					$('#placer_participant{$counter}_sitizen').append(getCountriesSelect('PARTICIPANT[{$counter}][sitizen]', 'participant_sitizen{$counter}', '".$arItem['country']."', '') );
+				});</script>
 			<input type=\"button\" id=\"delParticip{$counter}\" onclick=\" if(confirmDeleteRecord()) deleteParticipBlockComplete({$counter}, {$arItem['id']}, {$arItem['type']})\" value=\"Удалить участника\">
 			</div> <!-- \ border2px -->
 			</div> <!-- \ participantPerson -->
@@ -148,4 +135,4 @@ echo $fields;
 					 <div id="areaParticipant"></div>
 <br>
 <br>
-<input type="button" onclick="newParticipBlock()" value="Добавить участника">
+<input type="button" onclick="getParticipBlock()" value="Добавить участника">

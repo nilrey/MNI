@@ -51,6 +51,12 @@ class XMLDataMapping{
 //		"MEMO" => '',
 	);
 
+	var $arOrgDepartments = array(
+		"MYSQL_TABLE_NAME" => 'mon_rb_organizations',
+		"ORG_ID" => "org_id",
+		"DEPT_ID" => "dept_id",
+	);
+
 	var $arDepartments = array(
 		"MYSQL_TABLE_NAME" => 'mon_rb_departments',
 		"ORG_ID" => "org_id",
